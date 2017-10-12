@@ -1,0 +1,19 @@
+file=open("data6.csv")
+all_line=file.readlines()
+Hilist=[]
+lowlist=[]
+medlist=[]
+for i in all_line:
+    A_count=i.split(",")[1].upper().count("A")
+    T_count=i.split(",")[1].upper().count("T")
+    AT_count=(A_count+T_count)*100/(len(i.split(",")[1]))
+    if (AT_count>65):
+        Hilist.append(i.split(",")[2])
+    elif (AT_count<45):
+        lowlist.append(i.split(",")[2])
+    else:
+        medlist.append(i.split(",")[2])
+        
+print("AT content is high for",Hilist)
+print("AT content is low for",lowlist)
+print("AT content is medium for",medlist)
